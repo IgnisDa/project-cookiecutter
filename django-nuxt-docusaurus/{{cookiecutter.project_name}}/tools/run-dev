@@ -1,20 +1,17 @@
 #!/usr/bin/env bash
 # This script will be used to spin up the development servers for all the {{cookiecutter.project_name}} applications
 
-# Start the django development server
-cd /home/vagrant/{{cookiecutter.project_name}}/{{cookiecutter.django_project_name}}
-python3 manage.py runserver 0.0.0.0:8000 > /home/vagrant/{{cookiecutter.project_name}}/.vagrant/{{cookiecutter.django_project_name}}-backend.log 2>&1 &
-echo $! > /home/vagrant/{{cookiecutter.project_name}}/.vagrant/{{cookiecutter.django_project_name}}-backend.pid
-printf "Started django development server!\n\n"
+# change to the project folder
+cd "/home/vagrant/{{cookiecutter.project_name}}"
 
-# Start the nuxtjs development server
-cd /home/vagrant/{{cookiecutter.project_name}}/{{cookiecutter.nuxt_project_name}}
-yarn dev > /home/vagrant/{{cookiecutter.project_name}}/.vagrant/{{cookiecutter.nuxt_project_name}}.log 2>&1 &
-echo $! > /home/vagrant/{{cookiecutter.project_name}}/.vagrant/{{cookiecutter.nuxt_project_name}}.pid
-printf "Started nuxtjs development server!\n\n"
+# directory path of django development server
+backend_folder="{{cookiecutter.django_project_name}}"
+# directory path of nuxt development server
+frontend_folder="{{cookiecutter.nuxt_project_name}}"
+# directory path of documentation development server
+documentation_folder="{{cookiecutter.docs_project_name}}/website"
 
-# Start the documentation development server
-cd /home/vagrant/{{cookiecutter.project_name}}/{{cookiecutter.docs_project_name}}/website
-yarn start > /home/vagrant/{{cookiecutter.project_name}}/.vagrant/{{cookiecutter.docs_project_name}}.log 2>&1 &
-echo $! > /home/vagrant/{{cookiecutter.project_name}}/.vagrant/{{cookiecutter.docs_project_name}}.pid
-printf "Started documentation development server!\n\n"
+# Start all the servers
+{ cd "$backend_folder" && python3 manage.py runserver 0.0.0.0:8000 & \
+  cd "$frontend_folder" && yarn dev & \
+  cd "$documentation_folder" && yarn start; }

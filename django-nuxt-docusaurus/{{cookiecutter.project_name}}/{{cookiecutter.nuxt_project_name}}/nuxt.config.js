@@ -40,8 +40,14 @@ export default {
 
   // Added later
   server: {
-    port: 3000,
+    port: '3000',
     host: '0.0.0.0',
-    timing: false,
+  },
+  telemetry: false,
+  watchers: {
+    webpack: {
+      aggregateTimeout: 300,
+      poll: 1000,
+    },
   },
 }

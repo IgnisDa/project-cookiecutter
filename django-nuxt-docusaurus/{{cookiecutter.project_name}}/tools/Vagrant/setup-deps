@@ -1,16 +1,25 @@
 #!/usr/bin/env bash
+# This script will be used to install dependencies for all the {{cookiecutter.project_name}} applications
 
-set -e
-set -x
+# directory path of django development server
+backend_folder="{{cookiecutter.django_project_name}}"
+# directory path of nuxt development server
+frontend_folder="{{cookiecutter.nuxt_project_name}}"
+# directory path of documentation development server
+documentation_folder="{{cookiecutter.docs_project_name}}/website"
 
-# Install dependencies for Django backend
-cd /home/vagrant/{{cookiecutter.project_name}}/{{cookiecutter.django_project_name}}
-pip3 install -r requirements.txt
 
-# Install dependencies for Nuxt frontend
-cd /home/vagrant/{{cookiecutter.project_name}}/{{cookiecutter.nuxt_project_name}}
-yarn install
+# change to the project folder
+cd "/home/vagrant/{{cookiecutter.project_name}}"
+# install the dependencies for the frontend application
+cd "$frontend_folder" && yarn
 
-# Install dependencies for Docusaurus documentation
-cd /home/vagrant/{{cookiecutter.project_name}}/{{cookiecutter.docs_project_name}}/website
-yarn install
+# change to the project folder
+cd "/home/vagrant/{{cookiecutter.project_name}}"
+# install the dependencies for the documentation application
+cd "$documentation_folder" && yarn
+
+# change to the project folder
+cd "/home/vagrant/{{cookiecutter.project_name}}"
+# install the dependencies for the django application
+cd "$backend_folder" && pip3 install -r requirements.txt
