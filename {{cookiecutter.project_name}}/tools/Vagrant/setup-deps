@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+set -x
+
+# Install dependencies for Django backend
+cd /home/vagrant/bynkc/bynkc
+pip3 install -r requirements.txt
+
+# Install dependencies for Nuxt frontend
+cd /home/vagrant/bynkc/bynkc-frontend
+yarn install
+
+# Install dependencies for Docusaurus documentation
+cd /home/vagrant/bynkc/bynkc-docs/website
+yarn install

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# This script will be used to spin up the development servers for all the bynkc applications
+
+# Start the django development server
+cd /home/vagrant/bynkc/bynkc
+python3 manage.py runserver 0.0.0.0:8000 > /home/vagrant/bynkc/.vagrant/bynkc-backend.log 2>&1 &
+echo $! > /home/vagrant/bynkc/.vagrant/bynkc-backend.pid
+printf "Started django development server!\n\n"
+
+# Start the nuxtjs development server
+cd /home/vagrant/bynkc/bynkc-frontend
+npm run dev > /home/vagrant/bynkc/.vagrant/bynkc-frontend.log 2>&1 &
+echo $! > /home/vagrant/bynkc/.vagrant/bynkc-frontend.pid
+printf "Started nuxtjs development server!\n\n"
+
+# Start the documentation development server
+cd /home/vagrant/bynkc/bynkc-docs/website
+npm run start > /home/vagrant/bynkc/.vagrant/bynkc-docs.log 2>&1 &
+echo $! > /home/vagrant/bynkc/.vagrant/bynkc-docs.pid
+printf "Started documentation development server!\n\n"
