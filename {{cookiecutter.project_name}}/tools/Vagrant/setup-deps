@@ -12,5 +12,5 @@ cd /home/vagrant/{{cookiecutter.project_name}}/{{cookiecutter.project_name}}-fro
 yarn install
 
 # Install dependencies for Docusaurus documentation
-# cd /home/vagrant/{{cookiecutter.project_name}}/{{cookiecutter.project_name}}-docs/website
-# yarn install
+cd /home/vagrant/{{cookiecutter.project_name}}/{{cookiecutter.project_name}}-docs/website
+yarn install

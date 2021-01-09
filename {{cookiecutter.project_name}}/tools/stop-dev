@@ -10,5 +10,5 @@ fuser -k 3000/tcp
 printf "Stopped nuxtjs development server!\n\n"
 
 # Kill the documentation development server
-# fuser -k 8080/tcp
-# printf "Stopped documentation development server!\n"
+fuser -k 8080/tcp
+printf "Stopped documentation development server!\n"
