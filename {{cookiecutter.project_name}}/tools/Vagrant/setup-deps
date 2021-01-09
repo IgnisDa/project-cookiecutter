@@ -8,9 +8,9 @@ cd /home/vagrant/{{cookiecutter.project_name}}/{{cookiecutter.django_project_nam
 pip3 install -r requirements.txt
 
 # Install dependencies for Nuxt frontend
-cd /home/vagrant/{{cookiecutter.project_name}}/{{cookiecutter.nuxt_project_name}}-frontend
+cd /home/vagrant/{{cookiecutter.project_name}}/{{cookiecutter.nuxt_project_name}}
 yarn install
 
 # Install dependencies for Docusaurus documentation
-cd /home/vagrant/{{cookiecutter.project_name}}/{{cookiecutter.docs_project_name}}-docs/website
+cd /home/vagrant/{{cookiecutter.project_name}}/{{cookiecutter.docs_project_name}}/website
 yarn install
