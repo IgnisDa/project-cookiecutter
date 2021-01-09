@@ -4,5 +4,9 @@
     "github_name": "Diptesh Choudhuri",
     "postgres_admin_user": "admin-user",
     "postgres_password": "admin-password",
-    "postgres_database_name": "website-db"
+    "postgres_database_name": "website-db",
+    "django_project_name": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
+    "nuxt_project_name": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}-frontend",
+    "docs_project_name": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}-docs",
+    "django_user_model_app": "accounts"
 }
