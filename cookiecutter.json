@@ -10,6 +10,6 @@
     "postgres_password": "admin-password",
     "postgres_database_name": "website-db",
     "_copy_without_render": [
-        "index.js"
+        "**/*.js"
     ]
 }
