@@ -93,8 +93,6 @@ repository](https://github.com/PurpleBooth/a-good-readme-template/tags).
 
 ## Authors
 
-- [IgnisDa](https://github.com/IgnisDa/) (**Diptesh Choudhuri**) - _Initial work_
-
 See also the list of [contributors](contributors.md) who participated in this project.
 
 ## License
