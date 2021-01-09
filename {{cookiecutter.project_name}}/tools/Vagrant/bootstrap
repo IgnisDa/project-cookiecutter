@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
-
 # Based on script from https://github.com/jackdb/pg-app-dev-vm/blob/master/Vagrant-setup/bootstrap.sh
+
 set -e
 set -x
 
 # Edit the following to change the name of the database user that will be created:
-APP_DB_USER=admin-user
-APP_DB_PASS=admin-password
+APP_DB_USER={{cookiecutter.postgres_admin_user}}
+APP_DB_PASS={{cookiecutter.postgres_password}}
 
 # Edit the following to change the name of the database that is created (defaults to the user name)
-APP_DB_NAME=website-db
+APP_DB_NAME={{cookiecutter.postgres_database_name}}
 
 # Edit the following to change the version of PostgreSQL that is installed
 PG_VERSION=11
@@ -103,6 +103,6 @@ EOF
 # Tag the provision time:
 date > "$PROVISIONED_ON"
 
-echo "Successfully created bynkc dev virtual machine."
+echo "Successfully created {{cookiecutter.project_name}} dev virtual machine."
 echo ""
 print_db_usage
