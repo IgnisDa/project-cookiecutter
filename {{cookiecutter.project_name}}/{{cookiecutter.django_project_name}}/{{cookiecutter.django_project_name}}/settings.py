@@ -4,10 +4,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'dummy')
 
@@ -15,9 +11,6 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'dummy')
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-if DEBUG:
-    ALLOWED_HOSTS += ['*']
 
 # Application definition
 
@@ -33,6 +26,7 @@ INSTALLED_APPS = [
     '{{cookiecutter.django_user_model_app}}.apps.{{cookiecutter.django_user_model_app|capitalize}}Config',
 
     # django addons
+    'django_extensions',
 
 ]
 
@@ -119,3 +113,11 @@ DATABASES = {
     }
 }
 AUTH_USER_MODEL = '{{cookiecutter.django_user_model_app}}.CustomUser'
+STATIC_ROOT = BASE_DIR / 'static'
+MEDIA_ROOT = 'media'
+# production only settings
+if not DEBUG:
+    PASSWORD_HASHERS.insert(0, 'django.contrib.auth.hashers.Argon2PasswordHasher',)
+# development only settings
+if DEBUG:
+    ALLOWED_HOSTS += ['*']

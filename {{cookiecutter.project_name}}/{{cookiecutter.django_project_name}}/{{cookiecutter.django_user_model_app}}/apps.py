@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class AccountsConfig(AppConfig):
-    name = 'accounts'
+    name = '{{cookiecutter.django_user_model_app}}'
