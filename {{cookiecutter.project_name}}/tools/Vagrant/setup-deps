@@ -4,13 +4,13 @@ set -e
 set -x
 
 # Install dependencies for Django backend
-cd /home/vagrant/bynkc/bynkc
+cd /home/vagrant/{{cookiecutter.project_name}}/{{cookiecutter.project_name}}
 pip3 install -r requirements.txt
 
 # Install dependencies for Nuxt frontend
-cd /home/vagrant/bynkc/bynkc-frontend
+cd /home/vagrant/{{cookiecutter.project_name}}/{{cookiecutter.project_name}}-frontend
 yarn install
 
 # Install dependencies for Docusaurus documentation
-cd /home/vagrant/bynkc/bynkc-docs/website
-yarn install
+# cd /home/vagrant/{{cookiecutter.project_name}}/{{cookiecutter.project_name}}-docs/website
+# yarn install

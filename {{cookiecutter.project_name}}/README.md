@@ -1,4 +1,4 @@
-# Project Title
+# {{cookiecutter.project_name}}
 
 One Paragraph of project description goes here
 
@@ -9,7 +9,7 @@ moved it here.
 
 ## Summary
 
-- [Project Title](#project-title)
+- [{{cookiecutter.project_name}}](#cookiecutterproject_name)
   - [Summary](#summary)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
