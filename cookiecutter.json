@@ -8,5 +8,8 @@
     "docs_project_name": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}-docs",
     "postgres_admin_user": "admin-user",
     "postgres_password": "admin-password",
-    "postgres_database_name": "website-db"
+    "postgres_database_name": "website-db",
+    "_copy_without_render": [
+        "index.js"
+    ]
 }
