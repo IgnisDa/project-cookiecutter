@@ -102,6 +102,7 @@ EOF
 
 # Tag the provision time:
 date > "$PROVISIONED_ON"
+pip3 install poetry
 
 echo "Successfully created {{cookiecutter.project_name}} dev virtual machine."
 echo ""

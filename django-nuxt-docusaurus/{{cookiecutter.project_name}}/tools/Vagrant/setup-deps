@@ -22,4 +22,4 @@ cd "$documentation_folder" && yarn
 # change to the project folder
 cd "/home/vagrant/{{cookiecutter.project_name}}"
 # install the dependencies for the django application
-cd "$backend_folder" && pip3 install -r requirements.txt
+cd "$backend_folder" && poetry install
