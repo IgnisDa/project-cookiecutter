@@ -22,4 +22,6 @@ cd "$documentation_folder" && yarn
 # change to the project folder
 cd "/home/vagrant/{{cookiecutter.project_name}}"
 # install the dependencies for the django application
+poetry config virtualenvs.in-project "true"
+poetry env use 3.6
 cd "$backend_folder" && poetry install
