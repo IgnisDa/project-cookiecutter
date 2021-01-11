@@ -49,5 +49,6 @@ export default {
       aggregateTimeout: 300,
       poll: 1000,
     },
-  },target: 'static',
+  },
+  target: 'static',
 }
