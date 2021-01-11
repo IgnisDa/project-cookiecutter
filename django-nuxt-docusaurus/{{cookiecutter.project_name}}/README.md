@@ -97,9 +97,8 @@ See also the list of [contributors](contributors.md) who participated in this pr
 
 ## License
 
-This project is licensed under the [Apache-2.0](LICENSE.md)
-Apache-2.0 License - see the [LICENSE.md](LICENSE.md) file for
-details
+This project is licensed under the [Apache-2.0](LICENSE.md)- see the
+[LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
