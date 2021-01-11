@@ -1,5 +1,5 @@
 <template>
-  <div class="container"></div>
+  <div class="container bg-red-100">Hello World!</div>
 </template>
 
 <script>
