@@ -2,7 +2,7 @@
     "project_name": "",
     "github_username": "IgnisDa",
     "github_name": "Diptesh Choudhuri",
-    "django_project_name": "{{ cookiecutter.project_name|lower|replace(' ', '_') }}",
+    "django_project_name": "{{ cookiecutter.project_name|lower|replace(' ', '_')|replace('-', '_') }}",
     "django_user_model_app": "accounts",
     "nuxt_project_name": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}-frontend",
     "docs_project_name": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}-docs",
