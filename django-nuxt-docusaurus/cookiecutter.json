@@ -10,7 +10,8 @@
     "postgres_password": "admin-password",
     "postgres_database_name": "website-db",
     "_copy_without_render": [
-        "**/index.js"
+        "**/index.js",
+        "**/node_modules/*"
     ],
     "_extensions": [
         "cookiecutter.extensions.RandomStringExtension"
