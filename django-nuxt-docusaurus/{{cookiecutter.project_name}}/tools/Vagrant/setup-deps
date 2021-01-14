@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # This script will be used to install dependencies for all the {{cookiecutter.project_name}} applications
 
+# setup the git identities
+git config --global user.username {{cookiecutter.github_username}}
+git config --global user.email {{cookiecutter.github_email}}
+
 # directory path of django development server
 backend_folder="{{cookiecutter.django_project_name}}"
 # directory path of nuxt development server
