@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
   # This script sets up python3, npm, yarn, postgresql etc.
   config.vm.provision :shell, :path => "tools/Vagrant/bootstrap"
   # This script installs each specific application's dependencies
-  config.vm.provision :shell, :path => "tools/Vagrant/setup-deps"
+  config.vm.provision :shell, :path => "tools/Vagrant/setup-deps", privileged: false
   # This script sets some environment variables that are essential to development
   # This is done by adding a custom script to /etc/profile.d/
   config.vm.provision :shell, :path => "tools/shell/env-vars"
