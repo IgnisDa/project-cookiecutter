@@ -3,6 +3,29 @@
 
 set -e
 
+function coloredEcho(){
+  # taken from https://stackoverflow.com/a/23006365/11667450
+    local exp=$1;
+    local color=$2;
+    if ! [[ $color =~ '^[0-9]$' ]] ; then
+       case $(echo $color | tr '[:upper:]' '[:lower:]') in
+        black) color=0 ;;
+        red) color=1 ;; # error
+        green) color=2 ;; # success
+        yellow) color=3 ;; # warning
+        blue) color=4 ;; # completion
+        magenta) color=5 ;;
+        cyan) color=6 ;; # info
+        white|*) color=7 ;; # white or invalid color
+       esac
+    fi
+    tput setaf $color;
+    echo $exp;
+    tput sgr0;
+}
+
+coloredEcho "Setting configuration variables" "cyan"
+
 # Edit the following to change the name of the database user that will be created:
 APP_DB_USER="{{cookiecutter.postgres_admin_user}}"
 APP_DB_PASS="{{cookiecutter.postgres_password}}"
@@ -13,31 +36,20 @@ APP_DB_NAME="{{cookiecutter.postgres_database_name}}"
 # Edit the following to change the version of PostgreSQL that is installed
 PG_VERSION=13
 
+coloredEcho "Configuration variables complete" "cyan"
+
 ###########################################################
 # Changes below this line are probably not necessary
 ###########################################################
 print_db_usage () {
-  echo "Your PostgreSQL database has been setup and can be accessed on your local machine on the forwarded port (default: 15432)"
-  echo "  Host: localhost"
-  echo "  Port: 5432"
-  echo "  Database: $APP_DB_NAME"
-  echo "  Username: $APP_DB_USER"
-  echo "  Password: $APP_DB_PASS"
+  coloredEcho "Admin access to postgres user via VM:" "green"
+  coloredEcho "  vagrant ssh" "green"
+  coloredEcho "  sudo su - postgres" "green"
   echo ""
-  echo "Admin access to postgres user via VM:"
-  echo "  vagrant ssh"
-  echo "  sudo su - postgres"
-  echo ""
-  echo "psql access to app database user via VM:"
-  echo "  vagrant ssh"
-  echo "  sudo su - postgres"
-  echo "  PGUSER=$APP_DB_USER PGPASSWORD=$APP_DB_PASS psql -h localhost $APP_DB_NAME"
-  echo ""
-  echo "Env variable for application development:"
-  echo "  DATABASE_URL=postgresql://$APP_DB_USER:$APP_DB_PASS@localhost:5432/$APP_DB_NAME"
-  echo ""
-  echo "Local command to access the database via psql:"
-  echo "  PGUSER=$APP_DB_USER PGPASSWORD=$APP_DB_PASS psql -h localhost -p 5432 $APP_DB_NAME"
+  coloredEcho "psql access to app database user via VM:" "green"
+  coloredEcho "  vagrant ssh" "green"
+  coloredEcho "  sudo su - postgres" "green"
+  coloredEcho "  PGUSER=$APP_DB_USER PGPASSWORD=$APP_DB_PASS psql -h localhost $APP_DB_NAME" "green"
 }
 
 export DEBIAN_FRONTEND=noninteractive
@@ -51,6 +63,8 @@ then
   print_db_usage
   exit
 fi
+
+coloredEcho "Adding apt-keys and installing environment packages" "cyan"
 
 PG_REPO_APT_SOURCE=/etc/apt/sources.list.d/pgdg.list
 if [ ! -f "$PG_REPO_APT_SOURCE" ]
@@ -72,6 +86,8 @@ apt-get update
 # Install postgresql, python3.9 and fish shell (required for development)
 apt-get -y install "yarn" "postgresql-$PG_VERSION" "postgresql-contrib-$PG_VERSION" "fish" "python3" "python3-pip" "nodejs" "gcc" "g++" "make"
 
+coloredEcho "Environment packages installed successfully!" "yellow"
+
 PG_CONF="/etc/postgresql/$PG_VERSION/main/postgresql.conf"
 PG_HBA="/etc/postgresql/$PG_VERSION/main/pg_hba.conf"
 PG_DIR="/var/lib/postgresql/$PG_VERSION/main"
@@ -88,6 +104,8 @@ echo "client_encoding = utf8" >> "$PG_CONF"
 # Restart so that all new config is loaded:
 service postgresql restart
 
+coloredEcho "Creating database with the given parameters" "cyan"
+
 cat << EOF | su - postgres -c psql
 -- Create the database user:
 CREATE ROLE "$APP_DB_USER" WITH LOGIN CREATEDB ENCRYPTED PASSWORD '$APP_DB_PASS';
@@ -99,10 +117,15 @@ CREATE DATABASE "$APP_DB_NAME" WITH OWNER="$APP_DB_USER"
                                   TEMPLATE=template0;
 EOF
 
+
+coloredEcho "Database creation complete!" "yellow"
+
 # Tag the provision time:
 date > "$PROVISIONED_ON"
+
+coloredEcho "Installing global python packages" "cyan"
 pip3 install poetry
 
-echo "Successfully created {{cookiecutter.project_name}} dev virtual machine."
-echo ""
 print_db_usage
+echo ""
+coloredEcho "Successfully created {{cookiecutter.project_name}} dev virtual machine." "blue"
