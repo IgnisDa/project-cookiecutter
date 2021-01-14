@@ -32,14 +32,14 @@ coloredEcho "cyan" "Configuration variables complete"
 # Changes below this line are probably not necessary
 ###########################################################
 print_db_usage () {
-  coloredEcho "green" "Admin access to postgres user via VM:"
-  coloredEcho "green" "  vagrant ssh"
-  coloredEcho "green" "  sudo su - postgres"
+  coloredEcho "cyan" "Admin access to postgres user via VM:"
+  coloredEcho "cyan" "  vagrant ssh"
+  coloredEcho "cyan" "  sudo su - postgres"
   echo ""
-  coloredEcho "green" "psql access to app database user via VM:"
-  coloredEcho "green" "  vagrant ssh"
-  coloredEcho "green" "  sudo su - postgres"
-  coloredEcho "green" "  PGUSER=$APP_DB_USER PGPASSWORD=$APP_DB_PASS psql -h localhost $APP_DB_NAME"
+  coloredEcho "cyan" "psql access to app database user via VM:"
+  coloredEcho "cyan" "  vagrant ssh"
+  coloredEcho "cyan" "  sudo su - postgres"
+  coloredEcho "cyan" "  PGUSER=$APP_DB_USER PGPASSWORD=$APP_DB_PASS psql -h localhost $APP_DB_NAME"
 }
 
 export DEBIAN_FRONTEND=noninteractive
