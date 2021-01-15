@@ -25,11 +25,13 @@ INSTALLED_APPS = [
     "{{cookiecutter.django_user_model_app}}.apps.{{cookiecutter.django_user_model_app|capitalize}}Config",
     # django addons
     "django_extensions",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -98,8 +100,8 @@ STATIC_URL = "/static/"
 # Settings added later
 
 PASSWORD_HASHERS = [
-    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    "django.contrib.auth.hashers.PBKDF2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
 ]
 CORS_ORIGIN_WHITELIST = ("http://127.0.0.1:3000", "http://localhost:3000")
 TIME_ZONE = "Asia/Kolkata"
