@@ -126,4 +126,5 @@ if not DEBUG:
     )
 # development only settings
 if DEBUG:
-    ALLOWED_HOSTS += ["*"]
+    ALLOWED_HOSTS += "*"
+    CORS_ALLOW_ALL_ORIGINS = True
