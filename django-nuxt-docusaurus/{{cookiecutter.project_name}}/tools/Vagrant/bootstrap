@@ -108,6 +108,7 @@ EOF
 coloredEcho "yellow" "Database creation complete!"
 
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
 
 # Tag the provision time:
 date > "$PROVISIONED_ON"
