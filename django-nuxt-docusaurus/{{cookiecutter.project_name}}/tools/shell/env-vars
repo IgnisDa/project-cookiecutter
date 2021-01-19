@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 echo -e "export DJANGO_SECRET_KEY=\"{{ random_ascii_string(50) }}\"" >> /etc/profile.d/env-vars.sh
+echo -e "export DJANGO_DEBUG=\"1\"" >> /etc/profile.d/env-vars.sh
 echo -e "export DJANGO_DATABASE_ENGINE=\"django.db.backends.postgresql\"" >> /etc/profile.d/env-vars.sh
 echo -e "export DJANGO_DATABASE_NAME=\"website-db\"" >> /etc/profile.d/env-vars.sh
 echo -e "export DJANGO_DATABASE_USER=\"admin-user\"" >> /etc/profile.d/env-vars.sh
