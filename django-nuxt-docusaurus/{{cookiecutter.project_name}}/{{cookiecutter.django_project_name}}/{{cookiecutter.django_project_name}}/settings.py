@@ -24,7 +24,6 @@ INSTALLED_APPS = [
     # user installed apps
     "{{cookiecutter.django_user_model_app}}.apps.{{cookiecutter.django_user_model_app|capitalize}}Config",
     # django addons
-    "django_extensions",
     "corsheaders",
 ]
 
@@ -126,5 +125,6 @@ if not DEBUG:
     )
 # development only settings
 if DEBUG:
-    ALLOWED_HOSTS += "*"
+    ALLOWED_HOSTS += ["*"]
     CORS_ALLOW_ALL_ORIGINS = True
+    INSTALLED_APPS += ["django_extensions"]
