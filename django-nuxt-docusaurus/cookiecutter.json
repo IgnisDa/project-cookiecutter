@@ -13,7 +13,6 @@
     "_copy_without_render": [
         "**/index.js",
         "**/node_modules/*",
-        "*.js",
         "*.md"
     ],
     "_extensions": [
