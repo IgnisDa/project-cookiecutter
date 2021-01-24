@@ -12,7 +12,9 @@
     "postgres_database_name": "website-db",
     "_copy_without_render": [
         "**/index.js",
-        "**/node_modules/*"
+        "**/node_modules/*",
+        "*.js",
+        "*.md"
     ],
     "_extensions": [
         "cookiecutter.extensions.RandomStringExtension"
