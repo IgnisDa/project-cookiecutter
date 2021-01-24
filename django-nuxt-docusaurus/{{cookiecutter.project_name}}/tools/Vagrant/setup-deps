@@ -6,7 +6,7 @@ git config --global user.name "{{cookiecutter.github_username}}"
 git config --global user.email "{{cookiecutter.github_email}}"
 
 # install Gitzer to the system
-curl -sSL https://raw.githubusercontent.com/IgnisDa/Gitzer/main/get-gitzer.py | python
+curl -sSL https://raw.githubusercontent.com/IgnisDa/Gitzer/main/get-gitzer.py | python3
 
 # directory path of django development server
 backend_folder="{{cookiecutter.django_project_name}}"
