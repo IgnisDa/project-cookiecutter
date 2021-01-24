@@ -13,7 +13,7 @@ backend_folder="{{cookiecutter.django_project_name}}"
 # directory path of nuxt development server
 frontend_folder="{{cookiecutter.nuxt_project_name}}"
 # directory path of documentation development server
-documentation_folder="{{cookiecutter.docs_project_name}}/website"
+documentation_folder="{{cookiecutter.docs_project_name}}"
 
 
 # change to the project folder
