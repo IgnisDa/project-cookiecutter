@@ -1,24 +1,24 @@
 module.exports = {
   title: "{{ cookiecutter.project_name }} Documentation",
   tagline: "The tagline of my site",
-  url: "https://your-docusaurus-test-site.com",
-  baseUrl: "/",
+  url: "https://{{ cookiecutter.github_username }}.github.io",
+  baseUrl: "/{{ cookiecutter.project_name }}/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-  organizationName: "{{ cookiecutter.github_username }}", // Usually your GitHub org/user name.
-  projectName: "{{ cookiecutter.project_name }}", // Usually your repo name.
+  organizationName: "{{ cookiecutter.github_username }}",
+  projectName: "{{ cookiecutter.project_name }}",
   themeConfig: {
     navbar: {
       title: "{{ cookiecutter.project_name }}",
       logo: {
-        alt: "My Site Logo",
+        alt: "{{ cookiecutter.project_name }} Logo",
         src: "img/logo.svg",
       },
       items: [
         {
-          to: "docs/",
-          activeBasePath: "docs",
+          to: "/",
+          activeBasePath: "/",
           label: "Docs",
           position: "left",
         },
@@ -68,10 +68,6 @@ module.exports = {
           title: "More",
           items: [
             {
-              label: "Blog",
-              to: "blog",
-            },
-            {
               label: "GitHub",
               href:
                 "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}",
@@ -89,14 +85,9 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
+          routeBasePath: "/",
           editUrl:
-            "https://github.com/facebook/docusaurus/edit/master/website/",
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            "https://github.com/facebook/docusaurus/edit/master/website/blog/",
+            "https://github.com/{{ cookiecutter.github_name }}/{{ cookiecutter.project_name }}/edit/main/{{cookiecutter.docs_project_name}}/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
