@@ -12,7 +12,7 @@ curl -sSL https://raw.githubusercontent.com/IgnisDa/Gitzer/main/get-gitzer.py | 
 mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
 mkdir -p ~/.config/fish/
-echo "alias cat=\"bat\"" >> ~/.config/fish/config.fish
+echo "alias cat=\"batcat\"" >> ~/.config/fish/config.fish
 
 # set the default interactive shell as fish
 echo "if [[ \$(ps --no-header --pid=\$PPID --format=cmd) != \"fish\" ]]" >> ~/.bashrc
