@@ -9,16 +9,16 @@ git config --global user.email "{{cookiecutter.github_email}}"
 curl -sSL https://raw.githubusercontent.com/IgnisDa/Gitzer/main/get-gitzer.py | python3
 
 # replace the default file content viewer (cat) with bat
-mkdir -p ~/.local/bin
-ln -s /usr/bin/batcat ~/.local/bin/bat
-mkdir -p ~/.config/fish/
-echo "alias cat=\"batcat\"" >> ~/.config/fish/config.fish
+mkdir -p $HOME/.local/bin
+ln -s /usr/bin/batcat $HOME/.local/bin/bat
+mkdir -p $HOME/.config/fish/
+echo "alias cat=\"batcat\"" >> $HOME/.config/fish/config.fish
 
 # set the default interactive shell as fish
-echo "if [[ \$(ps --no-header --pid=\$PPID --format=cmd) != \"fish\" ]]" >> ~/.bashrc
-echo "then" >> ~/.bashrc
-echo "   exec fish" >> ~/.bashrc
-echo "fi" >> ~/.bashrc
+echo "if [[ \$(ps --no-header --pid=\$PPID --format=cmd) != \"fish\" ]]" >> $HOME/.bashrc
+echo "then" >> $HOME/.bashrc
+echo "   exec fish" >> $HOME/.bashrc
+echo "fi" >> $HOME/.bashrc
 
 # directory path of django development server
 backend_folder="{{cookiecutter.django_project_name}}"
