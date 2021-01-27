@@ -21,3 +21,19 @@ templates exist for different kind of projects:
    ```bash
    cookiecutter gh:IgnisDa/project-cookiecutter --directory="postgres"
    ```
+
+3. nuxt
+
+   This will setup a NuxtJS project with tailwind CSS support.
+
+   ```bash
+   cookiecutter gh:IgnisDa/project-cookiecutter --directory="nuxt"
+   ```
+
+4. django
+
+   This will setup a django project with PostgreSQL database support.
+
+   ```bash
+   cookiecutter gh:IgnisDa/project-cookiecutter --directory="django"
+   ```
