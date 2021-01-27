@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# This script will be used to spin up the development servers for all the {{cookiecutter.project_name}} applications
+
+# change to the project folder
+cd "/home/vagrant/{{cookiecutter.project_name}}"
+
+# directory path of django development server
+backend_folder="{{cookiecutter.django_project_name}}"
+
+# Start all the servers
+cd "$backend_folder" && poetry run python3 manage.py runserver 0.0.0.0:8000
+
