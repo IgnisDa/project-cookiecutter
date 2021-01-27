@@ -22,7 +22,6 @@ then
   echo "VM was already provisioned at: $(cat $PROVISIONED_ON)"
   echo "To run system updates manually login via 'vagrant ssh' and run 'apt-get update && apt-get upgrade'"
   echo ""
-  print_db_usage
   exit
 fi
 
@@ -47,6 +46,5 @@ sudo sysctl -p
 # Tag the provision time:
 date > "$PROVISIONED_ON"
 
-print_db_usage
 echo ""
 coloredEcho "blue" "Successfully created {{cookiecutter.project_name}} development virtual machine"
