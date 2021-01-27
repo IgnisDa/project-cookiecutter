@@ -12,3 +12,12 @@ templates exist for different kind of projects:
    ```bash
    cookiecutter gh:IgnisDa/project-cookiecutter --directory="django-nuxt-docusaurus"
    ```
+
+2. postgres
+
+   This will setup a PostgreSQL database in a vagrant machine and then forward the
+   necessary port to 5432.
+
+   ```bash
+   cookiecutter gh:IgnisDa/project-cookiecutter --directory="postgres"
+   ```
