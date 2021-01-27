@@ -20,11 +20,7 @@ echo "then" >> $HOME/.bashrc
 echo "   exec fish" >> $HOME/.bashrc
 echo "fi" >> $HOME/.bashrc
 
-# directory path of nuxt development server
-frontend_folder="{{cookiecutter.nuxt_project_name}}"
-
-
 # change to the project folder
 cd "/home/vagrant/{{cookiecutter.project_name}}"
 # install the dependencies for the frontend application
-cd "$frontend_folder" && yarn
+yarn

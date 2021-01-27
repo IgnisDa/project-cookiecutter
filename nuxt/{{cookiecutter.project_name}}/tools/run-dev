@@ -3,9 +3,4 @@
 
 # change to the project folder
 cd "/home/vagrant/{{cookiecutter.project_name}}"
-
-# directory path of nuxt development server
-frontend_folder="{{cookiecutter.nuxt_project_name}}"
-
-# Start all the servers
-cd "$frontend_folder" && yarn dev
+yarn dev
