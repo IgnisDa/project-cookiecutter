@@ -15,14 +15,12 @@ curl -sSL https://raw.githubusercontent.com/IgnisDa/Gitzer/main/get-gitzer.py | 
 mkdir -p $HOME/.local/bin
 ln -s /usr/bin/batcat $HOME/.local/bin/bat
 mkdir -p $HOME/.config/fish/
-echo "which exa &>/dev/null && alias ls=\"exa -la\"" >> $HOME/.config/fish/config.fish
-echo "which batcat &>/dev/null && alias cat=\"batcat\"" >> $HOME/.config/fish/config.fish
+git clone https://github.com/IgnisDa/linux-configs.git $HOME/.config
+
 # use the starship prompt
 curl -fsSL https://starship.rs/install.sh > /tmp/install.sh
 chmod +x /tmp/install.sh
 /tmp/install.sh --force
-echo "which starship &>/dev/null && starship init fish | source" >> $HOME/.config/fish/config.fish
-curl -sSL https://raw.githubusercontent.com/IgnisDa/linux-configs/master/starship.toml > $HOME/.config/starship.toml
 
 # set the default interactive shell as fish
 echo "if [[ \$(ps --no-header --pid=\$PPID --format=cmd) != \"fish\" ]]" >> $HOME/.bashrc
