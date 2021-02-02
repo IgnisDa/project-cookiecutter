@@ -33,3 +33,15 @@ echo "fi" >> $HOME/.bashrc
 cd "/home/vagrant/{{cookiecutter.project_name}}"
 # install the dependencies for the frontend application
 yarn
+
+# we prefer not to keep the virtual environment as a part of the synced directory for
+# performance reasons, hence we create a folder to store all of them and use symbolic links
+# for the project purposes
+cache_folder="$HOME/.project-cache/{{cookiecutter.project_name}}"
+frontend_cache="$cache_folder/$frontend_folder"
+
+mkdir -p "$frontend_cache"
+
+# for the frontend project folder
+mv "$HOME/{{cookiecutter.project_name}}/$frontend_folder/node_modules" "$frontend_cache/node_modules"
+ln -s "$frontend_cache/node_modules" "$HOME/{{cookiecutter.project_name}}/$frontend_folder/node_modules"

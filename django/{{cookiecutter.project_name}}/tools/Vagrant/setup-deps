@@ -39,6 +39,11 @@ poetry install
 # we prefer not to keep the virtual environment as a part of the synced directory for
 # performance reasons, hence we create a folder to store all of them and use symbolic links
 # for the project purposes
-mkdir -p "$HOME/.project-cache/{{cookiecutter.project_name}}/"
-mv "$HOME/{{cookiecutter.project_name}}/.venv" "$HOME/.project-cache/{{cookiecutter.project_name}}/"
-ln -s "$HOME/.project-cache/{{cookiecutter.project_name}}/.venv" "$HOME/{{cookiecutter.project_name}}/.venv"
+cache_folder="$HOME/.project-cache/{{cookiecutter.project_name}}"
+backend_cache="$cache_folder/$backend_folder"
+
+mkdir -p "$backend_cache"
+
+# for the backend project folder
+mv "$HOME/{{cookiecutter.project_name}}/$backend_folder/.venv" "$backend_cache/.venv"
+ln -s "$backend_cache/.venv" "$HOME/{{cookiecutter.project_name}}/$backend_folder/.venv"
