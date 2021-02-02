@@ -29,12 +29,16 @@ echo "then" >> $HOME/.bashrc
 echo "   exec fish" >> $HOME/.bashrc
 echo "fi" >> $HOME/.bashrc
 
-# directory path of django development server
-backend_folder="{{cookiecutter.django_project_name}}"
-
 # change to the project folder
 cd "/home/vagrant/{{cookiecutter.project_name}}"
 # install the dependencies for the django application
 cd "$backend_folder"
 poetry config virtualenvs.in-project "true"
 poetry install
+
+# we prefer not to keep the virtual environment as a part of the synced directory for
+# performance reasons, hence we create a folder to store all of them and use symbolic links
+# for the project purposes
+mkdir -p "$HOME/.project-cache/{{cookiecutter.project_name}}/"
+mv "$HOME/{{cookiecutter.project_name}}/.venv" "$HOME/.project-cache/{{cookiecutter.project_name}}/"
+ln -s "$HOME/.project-cache/{{cookiecutter.project_name}}/.venv" "$HOME/{{cookiecutter.project_name}}/.venv"
