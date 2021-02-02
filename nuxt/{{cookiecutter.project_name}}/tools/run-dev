@@ -2,5 +2,5 @@
 # This script will be used to spin up the development servers for all the {{cookiecutter.project_name}} applications
 
 # change to the project folder
-cd "/home/vagrant/{{cookiecutter.project_name}}"
+cd "$HOME/{{cookiecutter.project_name}}"
 yarn dev

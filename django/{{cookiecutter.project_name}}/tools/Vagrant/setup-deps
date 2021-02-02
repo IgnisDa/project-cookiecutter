@@ -30,7 +30,7 @@ echo "   exec fish" >> $HOME/.bashrc
 echo "fi" >> $HOME/.bashrc
 
 # change to the project folder
-cd "/home/vagrant/{{cookiecutter.project_name}}"
+cd "$HOME/{{cookiecutter.project_name}}"
 # install the dependencies for the django application
 cd "$backend_folder"
 poetry config virtualenvs.in-project "true"

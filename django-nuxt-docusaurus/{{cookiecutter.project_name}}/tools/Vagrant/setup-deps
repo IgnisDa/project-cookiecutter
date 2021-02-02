@@ -38,17 +38,17 @@ documentation_folder="{{cookiecutter.docs_project_name}}"
 
 
 # change to the project folder
-cd "/home/vagrant/{{cookiecutter.project_name}}"
+cd "$HOME/{{cookiecutter.project_name}}"
 # install the dependencies for the frontend application
 cd "$frontend_folder" && yarn
 
 # change to the project folder
-cd "/home/vagrant/{{cookiecutter.project_name}}"
+cd "$HOME/{{cookiecutter.project_name}}"
 # install the dependencies for the documentation application
 cd "$documentation_folder" && yarn
 
 # change to the project folder
-cd "/home/vagrant/{{cookiecutter.project_name}}"
+cd "$HOME/{{cookiecutter.project_name}}"
 # install the dependencies for the django application
 cd "$backend_folder"
 poetry config virtualenvs.in-project "true"
