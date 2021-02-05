@@ -23,6 +23,9 @@ curl -fsSL https://starship.rs/install.sh > /tmp/install.sh
 chmod +x /tmp/install.sh
 /tmp/install.sh --force
 
+# rust installer
+curl https://sh.rustup.rs -sSf | sh -s -- -y
+
 # set the default interactive shell as fish
 echo "if [[ \$(ps --no-header --pid=\$PPID --format=cmd) != \"fish\" ]]" >> $HOME/.bashrc
 echo "then" >> $HOME/.bashrc
