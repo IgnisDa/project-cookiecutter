@@ -12,8 +12,8 @@ frontend_folder="{{cookiecutter.nuxt_project_name}}"
 documentation_folder="{{cookiecutter.docs_project_name}}"
 
 # Start all the servers
-{ cd "$backend_folder" && poetry run python3 manage.py runserver_plus 0.0.0.0:8000 & \
+{ cd "$backend_folder" && poetry run python3 manage.py runserver_plus & \
   cd "$frontend_folder" && yarn dev; }
-# { cd "$backend_folder" && poetry run python3 manage.py runserver_plus 0.0.0.0:8000 & \
+# { cd "$backend_folder" && poetry run python3 manage.py runserver_plus & \
 #   cd "$frontend_folder" && yarn dev & \
 #   cd "$documentation_folder" && yarn start; }
