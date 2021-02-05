@@ -47,5 +47,5 @@ frontend_cache="$cache_folder/$frontend_folder"
 mkdir -p "$frontend_cache"
 
 # for the frontend project folder
-mv "$HOME/{{cookiecutter.project_name}}/$frontend_folder/node_modules" "$frontend_cache/node_modules"
-ln -s "$frontend_cache/node_modules" "$HOME/{{cookiecutter.project_name}}/$frontend_folder/node_modules"
+mv "$HOME/{{cookiecutter.project_name}}/node_modules" "$frontend_cache/node_modules"
+ln -s "$frontend_cache/node_modules" "$HOME/{{cookiecutter.project_name}}/node_modules"
