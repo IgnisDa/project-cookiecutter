@@ -1,7 +1,7 @@
 # cookie-cutter template
 
-This is my cookiecutter template that I use to initialize new projects. The following
-templates exist for different kind of projects:
+This is my [cookiecutter](https://cookiecutter.readthedocs.io/) template that I use to
+initialize new projects. The following templates exist for different kind of projects:
 
 1. django-nuxt-docusaurus
 
