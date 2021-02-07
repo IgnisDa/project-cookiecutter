@@ -33,6 +33,10 @@ echo "then" >> $HOME/.bashrc
 echo "   exec fish" >> $HOME/.bashrc
 echo "fi" >> $HOME/.bashrc
 
+# add WakaTime to prevent prompt from popping up
+echo "[settings]" >> $HOME/.wakatime.cfg
+echo "api_key = f7cc9182-5527-4bf4-9d2a-2c610994945d" >> $HOME/.wakatime.cfg
+
 # directory path of django development server
 backend_folder="{{cookiecutter.django_project_name}}"
 # directory path of nuxt development server
