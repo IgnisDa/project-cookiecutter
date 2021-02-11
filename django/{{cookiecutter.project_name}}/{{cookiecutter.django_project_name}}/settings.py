@@ -129,4 +129,3 @@ if DEBUG:
     CORS_ALLOW_ALL_ORIGINS = True
     INSTALLED_APPS.append("django_extensions")
     SHELL_PLUS = "ipython"
-    RUNSERVERPLUS_SERVER_ADDRESS_PORT = "0.0.0.0:8000"
