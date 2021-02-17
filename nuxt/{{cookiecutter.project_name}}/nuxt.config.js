@@ -39,10 +39,6 @@ export default {
   build: {},
 
   // Added later
-  server: {
-    port: '3000',
-    host: '0.0.0.0',
-  },
   telemetry: false,
   watchers: {
     webpack: {
