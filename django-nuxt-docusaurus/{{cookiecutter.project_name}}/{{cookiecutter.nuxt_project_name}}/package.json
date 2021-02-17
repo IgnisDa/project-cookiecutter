@@ -1,5 +1,5 @@
 {
-  "name": "{{cookiecutter.nuxt_project_name}}",
+  "name": "{{ cookiecutter.nuxt_project_name }}",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -35,8 +35,11 @@
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "fibers": "^5.0.0",
     "lint-staged": "^10.4.0",
     "prettier": "^2.1.2",
+    "sass": "^1.32.7",
+    "sass-loader": "10",
     "stylelint": "^13.7.2",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
