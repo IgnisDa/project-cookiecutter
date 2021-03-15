@@ -6,5 +6,8 @@
     "rust_project_name": "{{ cookiecutter.project_name|lower|replace(' ', '_')|replace('-', '_') }}",
     "postgres_admin_user": "admin-user",
     "postgres_password": "admin-password",
-    "postgres_database_name": "website-db"
+    "postgres_database_name": "website-db",
+    "_extensions": [
+        "cookiecutter.extensions.RandomStringExtension"
+    ]
 }

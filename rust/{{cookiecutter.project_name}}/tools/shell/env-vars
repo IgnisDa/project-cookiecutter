@@ -5,4 +5,3 @@ echo -e "PYTHONUNBUFFERED=\"1\"" >> /etc/environment
 echo -e "GITZER_DONT_START_BROWSER=\"1\"" >> /etc/environment
 echo -e "GITZER_BACKEND_HOST=\"0.0.0.0\"" >> /etc/environment
 echo -e "GITZER_FRONTEND_HOST=\"0.0.0.0\"" >> /etc/environment
-echo -e "CARGO_TARGET_DIR=\"/home/vagrant/.project-build/{{ cookiecutter.project_name }}/target\"" >> /etc/environment

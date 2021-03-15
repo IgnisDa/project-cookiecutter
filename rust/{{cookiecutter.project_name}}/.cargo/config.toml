@@ -1,0 +1,2 @@
+[build]
+target-dir = "/home/vagrant/.project-build/{{ random_ascii_string(50) }}/{{ cookiecutter.project_name }}"
