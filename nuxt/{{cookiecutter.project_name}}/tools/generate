@@ -16,7 +16,7 @@ random_str="$(tr -dc A-Za-z0-9 </dev/urandom | head -c 20 ; echo '')"
 date="$(date +%Y-%m-%d-%T)"
 random_dir="$date-$random_str"
 # create the build directory
-build_base="$HOME/.project-build/$directory/"
+build_base="$HOME/.project-build/$directory"
 build_dir="$build_base/$random_dir/"
 # create the base and build directory
 mkdir -p "$build_base"
@@ -29,13 +29,13 @@ pwd="$PWD"
 # copy the directory to a temporary location
 rsync -a --progress "." "$build_dir" --exclude "node_modules"
 cd "$build_base"
+# install the project dependencies
 yarn install
 echo "Project will be built in '$build_dir'"
 cd "$build_dir"
-cp -r "$build_base/node_modules" "."
-# install the project dependencies
+cp -r "$build_base/node_modules" "$build_dir/node_modules"
 # generate the production build
-yarn generate
+npm run generate
 # delete the target directory if it exists
 rm -rf "$pwd/dist"
 # move the file to the correct location
