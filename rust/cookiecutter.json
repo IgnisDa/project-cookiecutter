@@ -1,0 +1,7 @@
+{
+    "project_name": "",
+    "github_username": "IgnisDa",
+    "github_name": "Diptesh Choudhuri",
+    "github_email": "ignisda2001@gmail.com",
+    "rust_project_name": "{{ cookiecutter.project_name|lower|replace(' ', '_')|replace('-', '_') }}"
+}
