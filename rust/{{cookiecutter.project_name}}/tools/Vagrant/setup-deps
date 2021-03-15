@@ -38,4 +38,10 @@ echo "[settings]" >> $HOME/.wakatime.cfg
 echo "api_key = f7cc9182-5527-4bf4-9d2a-2c610994945d" >> $HOME/.wakatime.cfg
 
 # change to the project folder
-# cd "$HOME/{{cookiecutter.project_name}}"
+cd "$HOME/{{cookiecutter.project_name}}"
+
+# save the name of the CWD
+directory="$(basename $PWD)"
+# create the build directory
+build_base="$HOME/.project-build/{{ cookiecutter.project_name }}"
+mkdir -p "$build_base"
