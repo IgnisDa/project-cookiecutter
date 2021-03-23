@@ -14,4 +14,4 @@ echo -e "GITZER_BACKEND_HOST=\"0.0.0.0\"" >> /etc/environment
 echo -e "GITZER_FRONTEND_HOST=\"0.0.0.0\"" >> /etc/environment
 
 # add a directory to the $PATH which hold all custom scripts
-echo -e "export PATH=\"$PATH:$HOME/.bin/\"" >> /etc/profile.d/env-vars.sh
+echo -e "export PATH=\"$PATH:/home/vagrant/.bin/\"" >> /etc/profile.d/env-vars.sh
