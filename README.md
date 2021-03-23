@@ -37,3 +37,11 @@ initialize new projects. The following templates exist for different kind of pro
    ```bash
    cookiecutter gh:IgnisDa/project-cookiecutter --directory="django"
    ```
+
+5. rust
+
+   This will setup a rust project, with PostgreSQL and vagrant support.
+
+   ```bash
+   cookiecutter gh:IgnisDa/project-cookiecutter --directory="rust"
+   ```
