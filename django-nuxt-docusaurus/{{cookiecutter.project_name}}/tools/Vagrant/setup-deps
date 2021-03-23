@@ -49,6 +49,8 @@ CUSTOM_SCRIPTS_DIR="$HOME/.bin"
 mkdir -p "$CUSTOM_SCRIPTS_DIR"
 curl -sSL https://raw.githubusercontent.com/IgnisDa/linux-configs/master/scripts/setup-project.py \
     -o "$CUSTOM_SCRIPTS_DIR/setup-project"
+chmod +x "$CUSTOM_SCRIPTS_DIR/setup-project"
+
 cd "$HOME/{{cookiecutter.project_name}}"
 # install the dependencies for the django application
 cd "$backend_folder"
