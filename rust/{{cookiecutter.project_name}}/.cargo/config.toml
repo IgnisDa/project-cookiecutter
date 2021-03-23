@@ -1,2 +1,2 @@
 [build]
-target-dir = "/home/vagrant/.project-build/rust/{{ random_ascii_string(50) }}/{{ cookiecutter.project_name }}/target"
+target-dir = "/home/vagrant/.ephemeral/{{ random_ascii_string(50) }}/{{ cookiecutter.project_name }}/target"

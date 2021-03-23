@@ -41,3 +41,15 @@ directory="$(basename $PWD)"
 # create the build directory
 build_base="$HOME/.project-build/{{ cookiecutter.project_name }}"
 mkdir -p "$build_base"
+
+# we prefer not to keep the virtual environment as a part of the synced directory for
+# performance reasons, hence we create a folder to store all of them and use symbolic links
+# for the project purposes
+# first we create a directory where our custom scripts are stored
+CUSTOM_SCRIPTS_DIR="$HOME/.bin"
+mkdir -p "$CUSTOM_SCRIPTS_DIR"
+curl -sSL https://raw.githubusercontent.com/IgnisDa/linux-configs/master/scripts/setup-project.py \
+    -o "$CUSTOM_SCRIPTS_DIR/setup-project"
+chmod +x "$CUSTOM_SCRIPTS_DIR/setup-project"
+
+exec "$CUSTOM_SCRIPTS_DIR/setup-project"
