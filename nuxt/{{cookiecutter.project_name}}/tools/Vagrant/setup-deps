@@ -45,4 +45,4 @@ cd "$HOME/{{cookiecutter.project_name}}"
 # performance reasons, hence we create a folder to store all of them and use symbolic links
 # for the project purposes
 # first we create a directory where our custom scripts are stored
-exec "$CUSTOM_SCRIPTS_DIR/setup"
+"$CUSTOM_SCRIPTS_DIR/setup"

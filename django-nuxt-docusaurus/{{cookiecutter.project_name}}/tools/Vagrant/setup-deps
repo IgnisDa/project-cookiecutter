@@ -54,16 +54,16 @@ cd "$HOME/{{cookiecutter.project_name}}"
 # install the dependencies for the django application
 cd "$backend_folder"
 poetry config virtualenvs.in-project "true"
-exec "$CUSTOM_SCRIPTS_DIR/setup"
+eval "$CUSTOM_SCRIPTS_DIR/setup"
 
 # change to the project folder
 cd "$HOME/{{cookiecutter.project_name}}"
 # install the dependencies for the frontend application
 cd "$frontend_folder"
-exec "$CUSTOM_SCRIPTS_DIR/setup"
+eval "$CUSTOM_SCRIPTS_DIR/setup"
 
 # change to the project folder
 cd "$HOME/{{cookiecutter.project_name}}"
 # install the dependencies for the documentation application
 cd "$documentation_folder"
-exec "$CUSTOM_SCRIPTS_DIR/setup"
+eval "$CUSTOM_SCRIPTS_DIR/setup"
