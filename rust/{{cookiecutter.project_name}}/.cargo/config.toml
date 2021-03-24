@@ -1,2 +1,0 @@
-[build]
-target-dir = "/home/vagrant/.ephemeral/{{ random_ascii_string(50) }}/target"

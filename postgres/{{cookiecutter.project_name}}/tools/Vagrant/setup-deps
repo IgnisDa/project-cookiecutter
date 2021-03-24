@@ -13,10 +13,16 @@ curl -sSL https://raw.githubusercontent.com/IgnisDa/Gitzer/main/get-gitzer.py | 
 
 # replace the default file content viewer (cat) with bat
 sudo ln -s /usr/bin/batcat /usr/bin/bat
-
 # load all my system configs
 rm -rf $HOME/.config
 git clone https://github.com/IgnisDa/linux-configs.git $HOME/.config
+
+# load all the custom scripts
+CUSTOM_SCRIPTS_DIR="$HOME/custom-scripts"
+git clone https://github.com/IgnisDa/custom-scripts.git $CUSTOM_SCRIPTS_DIR
+chmod +x $CUSTOM_SCRIPTS_DIR/build
+chmod +x $CUSTOM_SCRIPTS_DIR/run
+chmod +x $CUSTOM_SCRIPTS_DIR/setup
 
 # use the starship prompt
 curl -fsSL https://starship.rs/install.sh > /tmp/install.sh
@@ -25,7 +31,6 @@ chmod +x /tmp/install.sh
 
 # rust installer
 curl https://sh.rustup.rs -sSf | sh -s -- -y
-
 
 # set the default interactive shell as fish
 echo "if [[ \$(ps --no-header --pid=\$PPID --format=cmd) != \"fish\" ]]" >> $HOME/.bashrc

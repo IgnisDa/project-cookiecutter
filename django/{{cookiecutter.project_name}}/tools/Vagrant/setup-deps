@@ -18,6 +18,13 @@ sudo ln -s /usr/bin/batcat /usr/bin/bat
 rm -rf $HOME/.config
 git clone https://github.com/IgnisDa/linux-configs.git $HOME/.config
 
+# load all the custom scripts
+CUSTOM_SCRIPTS_DIR="$HOME/custom-scripts"
+git clone https://github.com/IgnisDa/custom-scripts.git $CUSTOM_SCRIPTS_DIR
+chmod +x $CUSTOM_SCRIPTS_DIR/build
+chmod +x $CUSTOM_SCRIPTS_DIR/run
+chmod +x $CUSTOM_SCRIPTS_DIR/setup
+
 # use the starship prompt
 curl -fsSL https://starship.rs/install.sh > /tmp/install.sh
 chmod +x /tmp/install.sh
@@ -42,10 +49,4 @@ poetry config virtualenvs.in-project "true"
 # performance reasons, hence we create a folder to store all of them and use symbolic links
 # for the project purposes
 # first we create a directory where our custom scripts are stored
-CUSTOM_SCRIPTS_DIR="$HOME/.bin"
-mkdir -p "$CUSTOM_SCRIPTS_DIR"
-curl -sSL https://raw.githubusercontent.com/IgnisDa/linux-configs/master/scripts/setup-project.py \
-    -o "$CUSTOM_SCRIPTS_DIR/setup-project"
-chmod +x "$CUSTOM_SCRIPTS_DIR/setup-project"
-
-exec "$CUSTOM_SCRIPTS_DIR/setup-project"
+exec "$CUSTOM_SCRIPTS_DIR/setup"
