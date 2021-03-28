@@ -35,6 +35,7 @@ chmod +x /tmp/install.sh
 
 # rust installer
 curl https://sh.rustup.rs -sSf | sh -s -- -y
+source "$HOME/.cargo/env"
 
 # set the default interactive shell as fish
 ln -s "$HOME/.config/.bashrc" "$HOME/.bashrc"
