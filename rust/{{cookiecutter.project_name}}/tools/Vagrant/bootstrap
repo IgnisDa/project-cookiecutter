@@ -62,16 +62,11 @@ then
   wget --quiet -O - https://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | apt-key add -
 fi
 
-# Get installer for nodejs
-curl -sL https://deb.nodesource.com/setup_15.x | bash -
-# get installer for yarn
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 # Update package list
 apt-get update
 
-# Install postgresql, python3.9 and fish shell (required for development)
-apt-get -y install "yarn" "postgresql-$PG_VERSION" "postgresql-contrib-$PG_VERSION" "bat" "fish" "python3" "python3-pip" "exa" "neovim"
+# Install postgresql, python3.8 and fish shell (required for development)
+apt-get -y install "postgresql-$PG_VERSION" "postgresql-contrib-$PG_VERSION" "bat" "fish" "python3" "python3-pip" "exa" "neovim"
 
 
 coloredEcho "yellow" "Environment packages installed successfully!"
