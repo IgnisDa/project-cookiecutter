@@ -53,4 +53,15 @@ development, and the associated scripts are stored in the `<<project>>/tools` di
 
 1. `tools/shell/env-vars`: This sets up some environment variables that are essential to
    the project. For example, a `DJANGO_SECRET_KEY`, or a `CHOKIDAR_USEPOLLING` variable to
-   ensure that hot-reload works in the javascript projects correctly.
+   ensure that hot-reload works in the javascript projects correctly. This script is
+   present in all the project templates and run by vagrant during first provision.
+2. `tools/Vagrant/bootstrap`: This installs some packages that are essential to the project
+   being developed. For example, this means `nodejs` for `NuxtJS` projects, `python3` and
+   `PostgreSQL` for `Django` projects etc. This script is present in all the project
+   templates and run by vagrant during first provision.
+3. `tools/Vagrant/setup-deps`: This script usually setup some non trivial dependencies,
+   like git credentials, and the project dependencies, for example `node_modules` and then
+   caches them for performance boosts. This script is present in all the project
+   templates and run by vagrant during first provision.
+4. `tools/run-dev`: This script is used to run the development servers of the web
+   development focused projects. Not present in rust project template.
