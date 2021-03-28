@@ -45,3 +45,12 @@ initialize new projects. The following templates exist for different kind of pro
    ```bash
    cookiecutter gh:IgnisDa/project-cookiecutter --directory="rust"
    ```
+
+## How the scripts work
+
+All these project templates support [vagrant](https://www.vagrantup.com/) based
+development, and the associated scripts are stored in the `<<project>>/tools` directory.
+
+1. `tools/shell/env-vars`: This sets up some environment variables that are essential to
+   the project. For example, a `DJANGO_SECRET_KEY`, or a `CHOKIDAR_USEPOLLING` variable to
+   ensure that hot-reload works in the javascript projects correctly.
