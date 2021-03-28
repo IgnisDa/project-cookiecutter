@@ -42,3 +42,7 @@ echo "if [[ \$(ps --no-header --pid=\$PPID --format=cmd) != \"fish\" ]]" >> $HOM
 echo "then" >> $HOME/.bashrc
 echo "   exec fish" >> $HOME/.bashrc
 echo "fi" >> $HOME/.bashrc
+
+# change to the project folder
+cd "$HOME/{{cookiecutter.project_name}}"
+eval "$CUSTOM_SCRIPTS_DIR/setup"
