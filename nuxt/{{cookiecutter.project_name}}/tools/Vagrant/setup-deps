@@ -38,7 +38,9 @@ curl https://sh.rustup.rs -sSf | sh -s -- -y
 source "$HOME/.cargo/env"
 
 # set the default interactive shell as fish
+rm -rf "$HOME/.bashrc"
 ln -s "$HOME/.config/.bashrc" "$HOME/.bashrc"
+
 
 # change to the project folder
 cd "$HOME/{{cookiecutter.project_name}}"

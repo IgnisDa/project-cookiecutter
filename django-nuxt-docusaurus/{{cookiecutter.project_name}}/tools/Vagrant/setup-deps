@@ -37,7 +37,9 @@ chmod +x /tmp/install.sh
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 # set the default interactive shell as fish
+rm -rf "$HOME/.bashrc"
 ln -s "$HOME/.config/.bashrc" "$HOME/.bashrc"
+
 
 # directory path of django development server
 backend_folder="{{cookiecutter.django_project_name}}"
