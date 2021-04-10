@@ -47,7 +47,4 @@ export default {
     },
   },
   target: 'static',
-  tailwindcss: {
-    jit: true,
-  },
 }
