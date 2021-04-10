@@ -2,6 +2,7 @@
 
 echo -e "PYTHONDONTWRITEBYTECODE=\"1\"" >> /etc/environment
 echo -e "PYTHONUNBUFFERED=\"1\"" >> /etc/environment
+echo -e "VAGRANT_VM=\"1\"" >> /etc/environment
 echo -e "GITZER_DONT_START_BROWSER=\"1\"" >> /etc/environment
 echo -e "GITZER_BACKEND_HOST=\"0.0.0.0\"" >> /etc/environment
 echo -e "GITZER_FRONTEND_HOST=\"0.0.0.0\"" >> /etc/environment
