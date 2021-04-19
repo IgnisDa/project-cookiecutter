@@ -3,7 +3,9 @@
 
 set -e
 
-function coloredEcho(){
+curl https://raw.githubusercontent.com/IgnisDa/printr/main/get-printr.sh | sh -s -- --yes
+
+function coloredEcho()
   # taken from https://stackoverflow.com/a/53463162/11667450
     red="\033[0;31m"
     green="\033[0;32m"
@@ -20,9 +22,7 @@ PROVISIONED_ON=/etc/vm_provision_on_timestamp
 if [ -f "$PROVISIONED_ON" ]
 then
   echo "VM was already provisioned at: $(cat $PROVISIONED_ON)"
-  echo "To run system updates manually login via 'vagrant ssh' and run 'apt-get update
-curl -fsSL https://get.docker.com | sh
-sudo usermod -aG docker vagrant  && apt-get upgrade'"
+  echo "To run system updates manually login via 'vagrant ssh' and run 'apt-get update"
   echo ""
   exit
 fi
