@@ -5,17 +5,6 @@ set -e
 
 curl https://raw.githubusercontent.com/IgnisDa/printr/main/get-printr.sh | sh -s -- --yes
 
-function coloredEcho()
-  # taken from https://stackoverflow.com/a/53463162/11667450
-    red="\033[0;31m"
-    green="\033[0;32m"
-    yellow="\033[1;33m"
-    cyan="\033[1;36m"
-    blue="\033[1;34m"
-    NC="\033[0m" # No Color
-    printf "${!1}${2} ${NC}\n"
-}
-
 export DEBIAN_FRONTEND=noninteractive
 
 PROVISIONED_ON=/etc/vm_provision_on_timestamp
@@ -27,7 +16,7 @@ then
   exit
 fi
 
-coloredEcho "cyan" "Adding apt-keys and installing environment packages"
+printr -c cyan -f bold "Adding apt-keys and installing environment packages"
 
 # Get installer for nodejs
 curl -sL https://deb.nodesource.com/setup_15.x | bash -
@@ -42,7 +31,7 @@ sudo usermod -aG docker vagrant
 # Install postgresql, python3.9 and fish shell (required for development)
 apt-get -y install "yarn" "bat" "fish" "python3" "python3-pip" "nodejs" "gcc" "g++" "make" "exa" "neovim" "build-essential" "python"
 
-coloredEcho "yellow" "Environment packages installed successfully!"
+printr -c yellow -f bold "Environment packages installed successfully!"
 
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
@@ -53,4 +42,4 @@ timedatectl set-ntp true
 timedatectl set-timezone Asia/Kolkata
 
 echo ""
-coloredEcho "blue" "Successfully created {{cookiecutter.project_name}} development virtual machine"
+printr -c blue -f bold "Successfully created {{cookiecutter.project_name}} development virtual machine"
