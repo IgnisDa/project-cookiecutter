@@ -101,7 +101,7 @@ GRANT ALL PRIVILEGES ON DATABASE "$APP_DB_NAME" TO "$APP_DB_USER";
 EOF
 
 
-coloredEcho "yellow" "Database creation complete!"
+printr -c yellow "Database creation complete!"
 
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
