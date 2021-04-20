@@ -20,14 +20,16 @@ PG_VERSION=13
 printr -c cyan -f bold "Configuration variables complete"
 
 print_db_usage () {
-  printr -c cyan -f bold "Admin access to postgres user via VM:"
-  printr -c cyan -f bold  "  vagrant ssh"
-  printr -c cyan -f bold "  sudo su - postgres"
-  echo ""
-  printr -c cyan -f bold "psql access to app database user via VM:"
-  printr -c cyan -f bold "  vagrant ssh"
-  printr -c cyan -f bold "  sudo su - postgres"
-  printr -c cyan -f bold "  PGUSER=$APP_DB_USER PGPASSWORD=$APP_DB_PASS psql -h localhost $APP_DB_NAME"
+printr -c cyan -f bold "
+  Admin access to postgres user via VM:
+    vagrant ssh
+    sudo su - postgres
+
+  psql access to app database user via VM:
+    vagrant ssh
+    sudo su - postgres
+    PGUSER=$APP_DB_USER PGPASSWORD=$APP_DB_PASS psql -h localhost $APP_DB_NAME
+"
 }
 
 export DEBIAN_FRONTEND=noninteractive
@@ -35,9 +37,10 @@ export DEBIAN_FRONTEND=noninteractive
 PROVISIONED_ON=/etc/vm_provision_on_timestamp
 if [ -f "$PROVISIONED_ON" ]
 then
-  echo "VM was already provisioned at: $(cat $PROVISIONED_ON)"
-  echo "To run system updates manually login via 'vagrant ssh' and run 'apt-get update"
-  echo ""
+  printr -c red "
+  VM was already provisioned at: $(cat $PROVISIONED_ON)
+  To run system updates manually login via 'vagrant ssh' and run 'apt-get update
+"
   print_db_usage
   exit
 fi
@@ -115,5 +118,7 @@ printr -c cyan -f bold "Installing global python packages"
 pip3 install poetry
 
 print_db_usage
-echo ""
-printr -c blue -f bold "Successfully created {{cookiecutter.project_name}} development virtual machine"
+
+printr -c blue -f bold "
+Successfully created {{cookiecutter.project_name}} development virtual machine
+"
